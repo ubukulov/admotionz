@@ -1,0 +1,169 @@
+
+
+/* Put your custom styles here */
+
+h3.counter
+{
+    margin-bottom: 0px;
+    margin-top: 5px;
+}
+
+.total-inv
+{
+    font-size: 66px;
+    color: #ffffff;
+    border: 2px #fff solid;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.margin-auto
+{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.width-30pc
+{
+    width: 30%;
+}
+
+.copy-cont
+{
+    border-radius: 40px;
+    border: 2px #444 solid;
+    background-color: #ffffff;
+}
+
+.btn.btn-copy
+{
+    border-radius: 30px;
+}
+
+.total-inv-w
+{
+    font-size: 32px;
+}
+
+.sample1 h3
+{
+    color: #c1edd1;
+    font-style: italic;
+}
+
+.big-social .social-item.viber a:hover, .big-social .social-item.viber a:focus
+{
+    background-color: green;
+}
+
+.big-social .social-item.ok a:hover, .big-social .social-item.ok a:focus
+{
+    background-color: orange;
+}
+
+.big-social .social-item.skype a:hover, .big-social .social-item.skype a:focus
+{
+    background-color: blue;
+}
+
+.big-social .social-item.whatsapp a:hover, .big-social .social-item.whatsapp a:focus
+{
+    background-color: green;
+}
+
+.big-social .social-item.vk a:hover, .big-social .social-item.vk a:focus
+{
+    background-color: navy;
+}
+
+.btn-round-w
+{
+    border: 2px #fff solid;
+    border-radius: 18px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-left: 10px;
+}
+
+.content-2-6
+{
+    background: url("../images/white.jpg") center top repeat;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    background-attachment: fixed;
+}
+
+.absol
+{
+    position: absolute;
+    bottom: 0px;
+}
+
+.absol img
+{
+    width: 220px;
+    margin-left: -10px;
+    margin-bottom: -35px;
+}
+
+.team-2-2
+{
+    background: url("../images/head.jpg") center top repeat;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+    background-attachment: fixed;
+    padding: 40px 0;
+}
+
+.comments__avatar img
+{
+    width: 90px;
+    border-radius: 16px;
+}
+
+.client-row h3
+{
+    color: #777777;
+}
+
+.content-2-8 h2
+{
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 32px;
+}
+
+.comments__header
+{
+}
+
+null
+{
+}
+
+.invitemore h3
+{
+    font-size: 32px;
+    text-align: center;
+}
+
+.imagecont
+{
+    background: url("../images/mailopen.png") center top no-repeat;
+    position: absolute;
+    left: 0px;
+    top: 117px;
+    width: 48%;
+    height: 100%;
+}
+
+.content-3-4 ul h3
+{
+    text-align: center;
+}
+

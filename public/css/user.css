@@ -1,0 +1,110 @@
+body{
+    font-family: Verdana !important; font-size: 14px;
+}
+.user_settings{
+    height: 27px;
+    margin: 16px 25px 0 0;
+    padding: 0 7px 0 30px !important;
+    color: #C3C5DB !important;
+    font-size: 12px;
+    line-height: 25px !important;
+    background: url(../img/user/icon-settings.png) 7px center no-repeat;
+    text-overflow: ellipsis;
+    border-radius: 3px;
+    overflow: hidden;
+    float: right;
+    display: block !important;
+    text-decoration: none;
+}
+.content{
+    width: 100%;
+    padding: 0px 20px;
+}
+.middle{
+    width: 80%;
+    float: left;
+    padding: 10px;
+}
+.right_sidebar{
+    width: 20%;
+    float: left;
+    padding: 10px;
+}
+.right_div1,.right_div2{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+.right_span{
+    font-size: 16px;
+}
+#refs_count,#refs_profit{
+    float: right; font-size: 20px;
+}
+#refs_count{
+    color: #000000;
+}
+#refs_profit{
+    color: green;
+}
+.right_div2 input{
+    width: 100%;
+}
+.executor_news td{
+    padding: 5px; border: 1px solid #ccc;
+}
+.add_news_form input[type='text'], textarea{
+    width: 500px;
+}
+.add_news_form input[type='submit']{
+    padding: 5px 10px; width: 100px;
+}
+.profile input[type='text'],input[type='email']{
+    width: 200px; margin-left: 30px;
+}
+.adv_create_adv input[type='text']{
+    width: 500px;
+}
+.adv_list_adv{
+    width: 100%;
+}
+.adv_list_adv td{
+    padding: 10px; border: 1px solid #ccc;
+}
+.adv_list_adv th{
+    padding: 10px;
+}
+.adm_users,.adm_news,.adm_adv,.adm_cats{
+    width: 100%;
+}
+.adm_users td,.adm_news td,.adm_adv td,.adm_cats td{
+    padding: 10px; border: 1px solid #ccc;
+}
+.adm_users th,.adm_news th,.adm_adv th,.adm_cats th,.executor_news th{
+    padding: 10px; text-align: center;
+}
+select{
+    cursor: pointer;
+}
+.contact_info{
+    width: 44%; float: left; margin-right: 5%;
+}
+.password_change{
+    width: 50%; float: left;
+}
+.adv_create_form{
+    width: 700px;
+}
+.add_create_news{
+    width: 1000px; padding: 0;
+}
+.hide{
+    display: none;
+}
+.show{
+    display: block;
+}
+.modal-content{
+    padding: 15px;
+}

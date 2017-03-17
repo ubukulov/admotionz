@@ -1,0 +1,155 @@
+body{
+    font-family: Verdana !important; font-size: 14px;
+}
+#wrap{
+    width: 100%; padding: 0; margin: 0;
+}
+.left_sidebar{
+    width: 220px; float: left; padding: 0;
+}
+.content{
+    width: 83%; float: left; padding: 0;
+}
+.right_sidebar{
+    width: 20%;
+    float: left;
+}
+.block{
+    height: auto;
+    margin-bottom: 10px; padding: 10px 0;
+}
+.block img{
+    margin-right: 10px;
+}
+.block p{
+    font-size: 16px !important;
+}
+.clear{
+    clear: both;
+}
+.register_form{
+    width: 100%;
+}
+.date,.counter,.cat,.who_add{
+    font-size: 12px; margin-left: 5px;
+}
+.adv_content{
+    width: 600px; height: auto; margin: 0 auto;
+}
+.adv_description{
+    font-size: 18px; margin-top: 10px;
+}
+#timer{
+    font-weight: bold;
+}
+.adv_content_right{
+    width: 50%; height: auto; float: left;
+}
+.cats_lists{
+    list-style: none; padding: 0; margin: 0;
+}
+.news_block{
+    height: 340px;
+}
+.soc_buttons{
+    width: 100%; height: 40px;
+}
+.news_title{
+    color: #1A0DAB !important; font-size: 14px;
+}
+.soc_buttons > div:first-child{
+    width: 180px; float: left;
+}
+.post_click{
+    width: 140px; float: left; font-size: 11px; margin-left: 5px; margin-top: 5px; font-weight: 600;
+}
+/* =-=-=-=-=-=-=-[Menu Three]-=-=-=-=-=-=-=- */
+
+#menu3 {
+    width: 200px;
+    border: 1px solid #ccc;
+    margin: 10px;
+}
+
+#menu3 li a {
+    height: 32px;
+    text-decoration: none;
+}
+
+#menu3 li a:link, #menu3 li a:visited {
+    color: #888;
+    display: block;
+    background: url('../img/menu3.gif');
+    padding: 8px 0 0 30px;
+}
+
+#menu3 li a:hover, #menu3 li a:active {
+    color: #283A50;
+    background: url('../img/menu3.gif') 0 -32px;
+    padding: 8px 0 0 30px;
+}
+.top{
+    height: 61px; width: 100%; background: darkorange;
+}
+.top_content{
+    width: 1000px;
+    margin: 0 auto;
+    padding: 13px;
+}
+.top_btn{
+    display: inline-block;
+    vertical-align: top;
+    color: darkorange;
+    font-size: 14px;
+    border-radius: 2px;
+    cursor: pointer;
+    background: #fff;
+    padding: 11px 15px 10px;
+    box-sizing: border-box;
+    border: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    min-width: 90px;
+    margin: 0 0 0 25px;
+    transition: all .2s ease;
+    line-height: 1 !important;
+    float: none;
+    height: auto;
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+.top_btn:hover{
+    background: #e2e1e1;
+}
+.top_span{
+    vertical-align: baseline;
+    float: left;
+    color: #fff;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 500;
+    padding: 3px 0px 0 0;
+}
+.ad_offers{
+    background: url('../img/bg_offers.png') no-repeat center;
+    height: 209px;
+    margin: 10px 0;
+    text-align: center;
+    padding-top: 25px;
+}
+.cashback-rate-info{
+
+}
+.shop-title{
+    height: 40px;
+}
+.shop-image{
+    height: 90px;
+}
+.current-rate{
+    font-size: 22px;
+    font-weight: 300;
+}
+.special{
+    color: #f16144;
+}
