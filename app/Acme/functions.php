@@ -10,6 +10,7 @@ use App\Adv_cat;
 use Illuminate\Support\Facades\DB;
 use Jelovac\Bitly4laravel\Facades\Bitly4laravel as Bitly;
 use App\post_click;
+use App\PostUser;
 # По ид категории получить его наименование
 function get_cat_name($id){
     $id = (int) $id;
@@ -235,4 +236,14 @@ function get_post_click_cat_alt($id){
     $click = post_click::find($id);
     $str = "Вы получаете ". $click['price_click'] ." тг. за каждый уникальный переход + " .$click['percent']. "% от покупок при условии достижения конверсии не менее 2%. Переходы засчитываются из любой страны Мира.";
     return $str;
+}
+# По ид поста и пользователя получить ссылку
+function get_user_post_link($id_user,$id_post){
+    $result = PostUser::where(['id_post' => $id_post, 'id_user' => $id_user])->first();
+    return $result['bitly_link'];
+}
+#
+function getNumberConversion($id_user,$id_post){
+    $result = Wrapping::where(['id_user' => $id_user, 'id_post' => $id_post])->get();
+    return count($result);
 }

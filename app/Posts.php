@@ -55,4 +55,12 @@ class Posts extends Model
     public function user(){
         return $this->belongsTo('User');
     }
+    
+    # 
+    public static function getAmount($id_post){
+        $result = DB::select("SELECT PC.price_click FROM posts PO
+                        LEFT JOIN post_click PC ON PC.id=PO.id_post_click
+                        WHERE PO.id='$id_post'");
+        return $result[0]->price_click;
+    }
 }

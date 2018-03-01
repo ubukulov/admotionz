@@ -7,7 +7,7 @@
         <div class="middle" style="width: 100% !important;">
             <table cellpadding="0" cellspacing="0" border="0" class="table table-striped">
                 <thead>
-                    <th>ID</th><th>Картинка</th><th>Наименование</th><th>Категория</th><th>Статус</th><th>Дата</th><th>Доход, тг</th><th>Редактировать</th><th>Удалить</th>
+                    <th>ID</th><th>Картинка</th><th>Наименование</th><th>Категория</th><th>Статус</th><th>Дата</th><th>Редактировать</th><th>Удалить</th>
                 </thead>
                 <tbody>
                     @foreach($news as $n)
@@ -27,7 +27,7 @@
                         </td>
                         <td>{{ $n->created_at }}</td>
                         {{--<td><input type="text" readonly="readonly" value="{{ url('/post/'. $n->id . "-" . str_replace(' ', '-',mb_strtolower($n->title)). ".html") }}"></td>--}}
-                        <td>{{ get_profit($n->id, Auth::user()->id) }}</td>
+                        {{--<td>{{ get_profit($n->id, Auth::user()->id) }}</td>--}}
                         <td><a href="{{ url('/user/news/edit/'.$n->id) }}">Edit</a></td>
                         <td>
                             <button type="submit" onclick="deleteNews({{ $n->id }})">Delete</button>

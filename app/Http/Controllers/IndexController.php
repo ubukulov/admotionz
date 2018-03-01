@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use Illuminate\Http\Response;
 use App\Advertisements as ADV;
-use App\Events\PostHasViewed;
+use App\PostUser;
 use App\Wrapping;
 use Illuminate\Support\Facades\Redirect;
 use App\Advertising_costs as ADVcost;
@@ -29,6 +29,9 @@ class IndexController extends Controller
     protected $clientSecret = "d850e7fae59786b948dc1c777d3ba3";
     protected $website_admotionz_id = 525788;
     protected $website_likemoney_id = 479947;
+    # Auth
+    protected $user_id;
+    protected $user_login;
 
 	public function __construct(){
         if(!Cache::has('cat')){
@@ -40,6 +43,11 @@ class IndexController extends Controller
             Cache::put('last_two',$last_two,10);
         }
         $this->getLocation();
+        if(Auth::check()){
+            $this->user_id = Auth::user()->id;
+            $this->user_login = Auth::user()->login;
+            PostUser::setShortLink($this->user_id,$this->user_login);
+        }
 	}
     
     public function welcome(Request $request){
@@ -254,9 +262,7 @@ class IndexController extends Controller
         $post = Posts::find($id);
         $ip = $_SERVER['REMOTE_ADDR']; // Ип адрес удаленного пользователя
         $current_date = date("Y-m-d H:i:s"); // текущая время
-
-
-
+        // если есть рекламы
         if($this->get_advertisements()){
             if((Auth::check()) AND (Auth::user()->role <= 2)){
                 $adv = DB::table('advertisements')->where(['publish' => 1, 'status' => 1])->inRandomOrder()->first();
@@ -305,7 +311,14 @@ class IndexController extends Controller
 
         }else{
             // если нет рекламы
+            Wrapping::create([
+                'ip_user' => $ip, 'id_post' => $id, 'id_user' => $id_user
+            ]);
+            ADVcost::create([
+                'id_user' => $id_user, 'id_post' => $id, 'paid' => Posts::getAmount($id)
+            ]);
             return Redirect::intended('post/'.$id);
+            //return Redirect::intended(get_user_post_link($id_user,$id));
         }
     }
     # Страница О нас
@@ -404,5 +417,30 @@ class IndexController extends Controller
             Cache::put('country_code',"RU",60);
         }
         return redirect()->back();
+    }
+    # 
+    public function coupon($id_offer){
+        $id_offer = (int) $id_offer;
+        $cat = Cache::get('cat');
+        $last_two = Cache::get('last_two');
+        $api = new \Admitad\Api\Api();
+        $scope = 'coupons_for_website';
+        if(Cache::has('ad_coupons')){
+            //$ad_coupons = Cache::get('ad_coupons');
+        }else{
+            $authorizeResult = $api->authorizeClient($this->clientId, $this->clientSecret, $scope)->getArrayResult();
+            $api = new \Admitad\Api\Api($authorizeResult['access_token']);
+            $data1 = $api->get("/coupons/website/{$this->website_admotionz_id}/", array(
+                'status' => 'active', 'limit' => 500, 'campaign' => $id_offer
+            ))->getArrayResult();
+            $data2 = $api->get("/coupons/website/{$this->website_likemoney_id}/", array(
+                'status' => 'active', 'limit' => 500, 'campaign' => $id_offer
+            ))->getArrayResult();
+            $ad_coupons = array_merge($data1,$data2);
+            //Cache::put('ad_coupons', $ad_coupons, 30);
+        }
+        return view('welcome', compact('cat','ad_coupons','last_two'));
+        //$posts = DB::table('posts')->where(['id_cat' => $id, 'status' => 1])->orderBy('updated_at', 'DESC')->paginate(10);
+        //return view('welcome', compact('cat','posts','last_two'));
     }
 }

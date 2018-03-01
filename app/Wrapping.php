@@ -10,7 +10,7 @@ class Wrapping extends Model
     protected $table='wrapping';
 
     protected $fillable = [
-        'id', 'ip_user', 'created_at', 'updated_at'
+        'id', 'ip_user','id_user','id_post', 'created_at', 'updated_at'
     ];
 
     public static function exists($ip){

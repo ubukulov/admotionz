@@ -16,12 +16,12 @@
             @foreach($ad_offers['results'] as $item)
                 <div class="col-md-3 ad_offers">
                     <div class="shop-image">
-                        <a rel="nofollow" href="{{ $item['gotolink'] }}" target="_blank">
+                        <a rel="nofollow" href="{{ url('/admitad/offer/'.$item['id']) }}" target="_blank">
                             <img width="143" height="59" src="{{ $item['image'] }}" alt="">
                         </a>
                     </div>
                     <div class="shop-title">
-                        <a rel="nofollow" class="news_title" href="{{ $item['gotolink'] }}" target="_blank">
+                        <a rel="nofollow" class="news_title" href="{{ url('/admitad/offer/'.$item['id']) }}" target="_blank">
                             {{ $item['name'] }}
                         </a>
                     </div>
@@ -112,15 +112,24 @@
                 <div class="post_click">
                     <a href="{{ url('/drawing') }}" target="_blank" title="{{ get_post_click_cat_alt($two->id_post_click) }}">{{ get_post_click_cat_title($two->id_post_click) }}</a>
                 </div>
+                    @if(Auth::check())
+                        @if(Auth::user()->id == $two->id_user)
+                        <p style='margin-bottom: 10px;'>
+                            <input type="text" id="refs_link{{ $two->id }}" class="hidden" value="{{ $two->title . " " . $two->bitly_short_link }}" />
+                            <input style="width: 186px; margin-right: 10px;" type="text" value="{{ $two->bitly_short_link }}" readonly>
+                            <button type="button" id="copy_button{{ $two->id }}" onclick="copy_func({{ $two->id }});"><span class="fa fa-copy"></span> Копировать</button>
+                        </p>
+                        @else
+                        <p style='margin-bottom: 10px;'>
+                            <input type="text" id="refs_link{{ $two->id }}" class="hidden" value="{{ $two->title . " " . get_user_post_link(Auth::user()->id,$two->id) }}" />
+                            <input style="width: 186px; margin-right: 10px;" type="text" value="{{ get_user_post_link(Auth::user()->id,$two->id) }}" readonly>
+                            <button type="button" id="copy_button{{ $two->id }}" onclick="copy_func({{ $two->id }});"><span class="fa fa-copy"></span> Копировать</button>
+                        </p>
+                        @endif
+                    @endif
                 @endif
             </div>
-            @if(Auth::check() && Auth::user()->role > 2)
-            <p style='margin-bottom: 10px;'>
-				<input type="text" id="refs_link{{ $two->id }}" class="hidden" value="{{ $two->title . " " . $two->bitly_short_link }}" />
-				<input style="width: 186px; margin-right: 10px;" type="text" value="{{ $two->bitly_short_link }}" readonly>
-				<button type="button" id="copy_button{{ $two->id }}" onclick="copy_func({{ $two->id }});"><span class="fa fa-copy"></span> Копировать</button>
-            </p>
-            @endif
+
         </div>
     @endforeach
         <div class="col-md-4 news_block">
@@ -170,15 +179,24 @@
                 <div class="post_click">
                     <a href="{{ url('/drawing') }}" target="_blank" title="{{ get_post_click_cat_alt($post->id_post_click) }}">{{ get_post_click_cat_title($post->id_post_click) }}</a>
                 </div>
+                    @if(Auth::check())
+                        @if(Auth::user()->id == $post->id_user)
+                            <p style='margin-bottom: 10px;'>
+                                <input type="text" id="refs_link{{ $post->id }}" class="hidden" value="{{ $post->title . " " . $post->bitly_short_link }}" />
+                                <input style="width: 186px; margin-right: 10px;" type="text" value="{{ $post->bitly_short_link }}" readonly>
+                                <button type="button" id="copy_button{{ $post->id }}" onclick="copy_func({{ $post->id }});"><span class="fa fa-copy"></span> Копировать</button>
+                            </p>
+                        @else
+                            <p style='margin-bottom: 10px;'>
+                                <input type="text" id="refs_link{{ $post->id }}" class="hidden" value="{{ $post->title . " " . get_user_post_link(Auth::user()->id,$post->id) }}" />
+                                <input style="width: 186px; margin-right: 10px;" type="text" value="{{ get_user_post_link(Auth::user()->id,$post->id) }}" readonly>
+                                <button type="button" id="copy_button{{ $post->id }}" onclick="copy_func({{ $post->id }});"><span class="fa fa-copy"></span> Копировать</button>
+                            </p>
+                        @endif
+                    @endif
                 @endif
             </div>
-            @if(Auth::check() && Auth::user()->role > 2)
-            <p style='margin-bottom: 10px;'>
-				<input type="text" id="refs_link{{ $post->id }}" class="hidden" value="{{ $post->title . " " . $post->bitly_short_link }}" />
-				<input style="width: 186px; margin-right: 10px;" type="text" value="{{ $post->bitly_short_link }}" readonly>
-				<button type="button" id="copy_button{{ $post->id }}" onclick="copy_func({{ $post->id }});"><span class="fa fa-copy"></span> Копировать</button>
-            </p>
-            @endif
+
         </div>
     @endforeach
     </div>

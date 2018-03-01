@@ -31,6 +31,7 @@ Route::get('logout', function(){
 });
 Route::get('/admitad', 'IndexController@admitad');
 Route::post('/location', 'IndexController@setLocation');
+Route::get('/admitad/offer/{id}', 'IndexController@coupon');
 
 # Маршрутизации для испольнителя
 Route::group(['middleware' => 'role:4'], function(){
